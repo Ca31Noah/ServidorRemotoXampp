@@ -31,7 +31,7 @@ class Proveedor{
             $stmt->execute(array($this->nombre,$this->email));
             $count = $stmt->rowCount();
             echo "{$this->columnasAfectadas($count)}";
-            header("Location: ../CapaPresentacion/MenuProducto.php");
+            header("Location: ../CapaPresentacion/MenuProveedor.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -39,10 +39,11 @@ class Proveedor{
 
     public function actualizarProveedor() {
         try {
-            $stmt = $this->conexion->prepare("UPDATE proveedores SET email=?,  WHERE nombre=?");
+            $stmt = $this->conexion->prepare("UPDATE proveedores SET email=?  WHERE nombre=?");
             $stmt->execute(array($this->email,$this->nombre));
             $count = $stmt->rowCount();
             echo "{$this->columnasAfectadas($count)}";
+            header("Location: ../CapaPresentacion/MenuProveedor.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -54,6 +55,7 @@ class Proveedor{
             $stmt->execute(array($this->nombre));
             $count = $stmt->rowCount();
             echo "{$this->columnasAfectadas($count)}";
+            header("Location: ../CapaPresentacion/MenuProveedor.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }

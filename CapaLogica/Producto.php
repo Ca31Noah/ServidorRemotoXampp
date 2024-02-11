@@ -89,6 +89,7 @@ class Producto{
             $stmt->execute(array($this->nombre, $this->detalle, $this->precio, $this->cantidad,$this->id_pedido,$this->id_proveedor, $this->codigo));
             $count = $stmt->rowCount();
             echo "{$this->columnasAfectadas($count)}";
+            header("Location: ../CapaPresentacion/MenuProducto.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -100,6 +101,7 @@ class Producto{
             $stmt->execute(array($this->codigo));
             $count = $stmt->rowCount();
             echo "{$this->columnasAfectadas($count)}";
+            header("Location: ../CapaPresentacion/MenuProducto.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }

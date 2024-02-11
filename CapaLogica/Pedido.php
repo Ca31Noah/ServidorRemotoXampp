@@ -79,6 +79,7 @@ class Pedido{
             $stmt->execute(array($this->id_producto, $this->id_proveedor, $this->cantidad_pedida, $this->fecha_pedido, $this->estado_pedido, $this->id_pedido));
             $count = $stmt->rowCount();
             echo "{$this->columnasAfectadas($count)}";
+            header("Location: ../CapaPresentacion/MenuProducto.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -88,7 +89,7 @@ class Pedido{
         try {
             $stmt = $this->conexion->prepare("DELETE FROM pedidos WHERE id_pedido=?");
             $stmt->execute(array($this->id_pedido));
-            
+            header("Location: ../CapaPresentacion/MenuProducto.php");
             echo "Pedido eliminado correctamente";
         } catch (PDOException $e) {
             echo $e->getMessage();
