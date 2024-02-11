@@ -31,7 +31,6 @@ class Proveedor{
             $stmt->execute(array($this->nombre,$this->email));
             $count = $stmt->rowCount();
             echo "{$this->columnasAfectadas($count)}";
-            header("Location: ../CapaPresentacion/MenuProveedor.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -43,7 +42,6 @@ class Proveedor{
             $stmt->execute(array($this->email,$this->nombre));
             $count = $stmt->rowCount();
             echo "{$this->columnasAfectadas($count)}";
-            header("Location: ../CapaPresentacion/MenuProveedor.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -55,7 +53,6 @@ class Proveedor{
             $stmt->execute(array($this->nombre));
             $count = $stmt->rowCount();
             echo "{$this->columnasAfectadas($count)}";
-            header("Location: ../CapaPresentacion/MenuProveedor.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -66,7 +63,6 @@ class Proveedor{
             $stmt = $this->conexion->prepare("SELECT * FROM proveedores");
             $stmt->execute();
             $proveedores = $stmt->fetchAll();
-
 
             echo '<br><table border="1">';
             echo '<caption><a href=" ../Index.php">Regresar</a></caption';
@@ -94,6 +90,7 @@ class Proveedor{
     private function columnasAfectadas($count): string {
         if($count<>null && $count>0) {
             $sms= "Operación realizada correctamente";
+            header("Location: ../CapaPresentacion/MenuProveedor.php");
         }else {
             $sms= "Error, revise la conexion con su Base de datos";
         }

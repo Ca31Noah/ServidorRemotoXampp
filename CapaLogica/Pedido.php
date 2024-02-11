@@ -67,7 +67,6 @@ class Pedido{
             $stmt->execute(array($this->id_pedido,$this->id_producto,$this->id_proveedor,$this->cantidad_pedida, $this->fecha_pedido , $this->estado_pedido));
             $count = $stmt->rowCount();
             echo "{$this->columnasAfectadas($count)}";
-            header("Location: ../CapaPresentacion/MenuProducto.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -79,7 +78,6 @@ class Pedido{
             $stmt->execute(array($this->id_producto, $this->id_proveedor, $this->cantidad_pedida, $this->fecha_pedido, $this->estado_pedido, $this->id_pedido));
             $count = $stmt->rowCount();
             echo "{$this->columnasAfectadas($count)}";
-            header("Location: ../CapaPresentacion/MenuProducto.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -89,7 +87,6 @@ class Pedido{
         try {
             $stmt = $this->conexion->prepare("DELETE FROM pedidos WHERE id_pedido=?");
             $stmt->execute(array($this->id_pedido));
-            header("Location: ../CapaPresentacion/MenuProducto.php");
             echo "Pedido eliminado correctamente";
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -124,7 +121,6 @@ class Pedido{
                 echo '<td>' . $pedido['estado_pedido'] . '</td>';
                 echo '</tr>';
             }
-    
             echo '</table>';
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -134,6 +130,7 @@ class Pedido{
     private function columnasAfectadas($count): string {
         if ($count !== null && $count > 0) {
             $sms = "Operación realizada correctamente";
+            header("Location: ../CapaPresentacion/MenuPedido.php");
         } else {
             $sms = "Error, revise la conexión con su Base de datos";
         }

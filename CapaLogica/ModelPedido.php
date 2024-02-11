@@ -27,7 +27,7 @@ if (!empty($_POST["operacion"])) {
         $id_proveedor = $_POST["id_proveedor"];
         $cantidad_pedida = $_POST["cantidad_pedida"];
         $fecha_pedido = $_POST["fecha_pedido"];
-        $estado_pedido = $_POST["esatdo_pedido"];
+        $estado_pedido = $_POST["estado_pedido"];
         $pedido->setId_pedido($id_pedido);
         $pedido->setId_producto($id_producto);
         $pedido->setId_proveedor($id_proveedor);

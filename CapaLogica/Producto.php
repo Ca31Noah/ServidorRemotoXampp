@@ -77,7 +77,6 @@ class Producto{
             $stmt->execute(array($this->codigo,$this->nombre,$this->detalle, $this->precio, $this->cantidad,$this->id_pedido,$this->id_proveedor));
             $count = $stmt->rowCount();
             echo "{$this->columnasAfectadas($count)}";
-            header("Location: ../CapaPresentacion/MenuProducto.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -89,7 +88,6 @@ class Producto{
             $stmt->execute(array($this->nombre, $this->detalle, $this->precio, $this->cantidad,$this->id_pedido,$this->id_proveedor, $this->codigo));
             $count = $stmt->rowCount();
             echo "{$this->columnasAfectadas($count)}";
-            header("Location: ../CapaPresentacion/MenuProducto.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -101,7 +99,6 @@ class Producto{
             $stmt->execute(array($this->codigo));
             $count = $stmt->rowCount();
             echo "{$this->columnasAfectadas($count)}";
-            header("Location: ../CapaPresentacion/MenuProducto.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -147,6 +144,7 @@ class Producto{
     private function columnasAfectadas($count): string {
         if($count<>null && $count>0) {
             $sms= "Operación realizada correctamente";
+            header("Location: ../CapaPresentacion/MenuProducto.php");
         }else {
             $sms= "Error, revise la conexion con su Base de datos";
         }
