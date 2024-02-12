@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-02-2024 a las 22:07:01
+-- Tiempo de generación: 12-02-2024 a las 01:08:00
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -20,29 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `comercial`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pedidos`
---
-
-CREATE TABLE `pedidos` (
-  `id` int(11) NOT NULL,
-  `id_pedido` int(11) NOT NULL,
-  `id_producto` int(11) NOT NULL,
-  `id_proveedor` int(11) NOT NULL,
-  `cantidad_pedida` int(11) NOT NULL,
-  `fecha_pedido` date NOT NULL,
-  `estado_pedido` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `pedidos`
---
-
-INSERT INTO `pedidos` (`id`, `id_pedido`, `id_producto`, `id_proveedor`, `cantidad_pedida`, `fecha_pedido`, `estado_pedido`) VALUES
-(1, 12, 13, 15, 515, '2024-02-03', 'en proceso');
 
 -- --------------------------------------------------------
 
@@ -66,36 +43,11 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `codigo`, `nombre`, `detalle`, `precio`, `cantidad`, `id_pedido`, `id_proveedor`) VALUES
-(2, 2525, 'kjkj', 'lmkm', 0.01, 3, 1, 1);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `proveedores`
---
-
-CREATE TABLE `proveedores` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `proveedores`
---
-
-INSERT INTO `proveedores` (`id`, `nombre`, `email`) VALUES
-(1, 'carlos', 'carlos@espoch.com');
+(6, 2121, 'dada', 'dada', 113, 121, 0, 2);
 
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `pedidos`
---
-ALTER TABLE `pedidos`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `productos`
@@ -106,12 +58,6 @@ ALTER TABLE `productos`
   ADD KEY `productos-proveedores` (`id_proveedor`);
 
 --
--- Indices de la tabla `proveedores`
---
-ALTER TABLE `proveedores`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -119,7 +65,7 @@ ALTER TABLE `proveedores`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
