@@ -1,10 +1,10 @@
 <?php
 
 class ConexionDB {
-    private $server = "localhost";
+    private $server = "192.168.1.100";
     private $database = "comercial";
-    private $username = "root";
-    private $password = "";
+    private $username = "Noa";
+    private $password = "3323";
     private $conexion;
 
     public function conectar(){
